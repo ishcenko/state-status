@@ -1,0 +1,31 @@
+.TodoList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 1000px;
+}
+
+.TodoList__item {
+  font-style: italic;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid blue;
+  border-radius: 4px;
+  text-align: center;
+  padding: 15px;
+  background: rgba(235, 242, 222, 0.482);
+}
+
+.TodoList__text {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+
+.TodoList__button {
+  border: none;
+  font-size: 20px;
+  background-color: rgba(255, 0, 0, 0.923);
+}
