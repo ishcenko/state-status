@@ -1,5 +1,5 @@
 import React from 'react';
-import './TodoList.css';
+import './TodoList.scss';
 
 const TodoList = ({ todos, onDeleteTodo }) => (
   <ul className="TodoList">

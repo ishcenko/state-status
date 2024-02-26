@@ -3,6 +3,7 @@ import Counter from './components/Counter';
 import Dropdown from 'components/Dropdown';
 import ColorPicker from 'components/ColorPicker';
 import TodoList from 'components/TodoList';
+import Form from 'components/Form';
 import initialTodos from './todos.json';
 
 const colorPickerOptions = [
@@ -16,6 +17,7 @@ const colorPickerOptions = [
 class App extends Component {
   state = {
     todos: initialTodos,
+    inputValue: '',
   };
 
   deleteTodo = todoId => {
@@ -23,7 +25,9 @@ class App extends Component {
       todos: prevState.todos.filter(todo => todo.id !== todoId),
     }));
   };
-
+  formSubmitHandler = data => {
+    console.log(data);
+  };
   render() {
     const { todos } = this.state;
 
@@ -35,6 +39,9 @@ class App extends Component {
     return (
       <>
         <h1>Стан компонента</h1>
+        <Form onSubmit={this.formSubmitHandler} />
+        {/* <Form onSubmit={this.formSubmitHandler} /> */}
+
         <Counter initialValue={1} />
         <Dropdown />
         <ColorPicker options={colorPickerOptions} />
