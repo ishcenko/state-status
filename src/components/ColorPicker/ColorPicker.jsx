@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './ColorPicker.scss';
+import './ColorPicker.css';
 class ColorPicker extends Component {
   state = {
     activOptionInd: 4,
