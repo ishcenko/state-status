@@ -1,5 +1,3 @@
-/* @import 'styles/shared.scss'; */
-
 .TodoList {
   display: flex;
   flex-direction: column;

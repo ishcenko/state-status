@@ -1,6 +1,6 @@
 import React from 'react';
 import Controls from './Controls';
-import Value from 'components/value';
+import Value from 'components/Counter/Value';
 import './Counter.css';
 
 class Counter extends React.Component {
@@ -11,47 +11,20 @@ class Counter extends React.Component {
   static propTypes = {
     //
   };
+
   state = { value: this.props.initialValue };
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     value: 0,
-  //   };
-  // }
+
   handleIncrement = () => {
     this.setState(prevState => ({
       value: prevState.value + 1,
     }));
   };
-  // handleIncrement = event => {
-  //   console.log('Збільшити на 1');
-  //   console.log(this);
-  //   console.log(event.target);
-  //   console.log(event.type);
 
-  //   const { target } = event;
-
-  //   setTimeout(() => {
-  //     console.log(target);
-  //   }, 5000);
-  // };
   handleDecrement = () => {
     this.setState(prevState => ({
       value: prevState.value - 1,
     }));
   };
-  // handleDecrement = event => {
-  //   console.log('Зменшити на 1');
-  //   console.log(this);
-  //   console.log(event.target);
-  //   console.log(event.type);
-
-  //   const { target } = event;
-
-  //   setTimeout(() => {
-  //     console.log(target);
-  //   }, 1000);
-  // };
 
   render() {
     return (
@@ -65,4 +38,5 @@ class Counter extends React.Component {
     );
   }
 }
+
 export default Counter;

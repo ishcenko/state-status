@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
+
 class Form extends Component {
   state = {
     name: '',
@@ -20,7 +21,6 @@ class Form extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // console.log(this.state);
     this.props.onSubmit(this.state);
     this.resetForm();
   };
@@ -36,6 +36,7 @@ class Form extends Component {
       tag: '',
     });
   };
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>

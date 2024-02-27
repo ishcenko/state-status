@@ -14,6 +14,7 @@ class ColorPicker extends Component {
     if (index === this.state.activOptionInd) {
       optionClases.push('ColorPicker__option--active');
     }
+
     return optionClases.join(' ');
   };
 
@@ -33,10 +34,6 @@ class ColorPicker extends Component {
                 onClick={() => this.setActivInd(index)}
                 style={{
                   backgroundColor: color,
-                  //   border:
-                  //     index === this.state.activOptionInd
-                  //       ? '3px solid blue'
-                  //       : 'none',
                 }}
               ></button>
             );

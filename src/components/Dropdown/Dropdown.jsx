@@ -22,11 +22,6 @@ class Dropdown extends Component {
         >
           {this.state.visible ? 'Close' : 'Open'}
         </button>
-
-        {/* <button type="button" className="Dropdown__toggle" onClick={this.hide}>
-          Сховати
-        </button> */}
-
         {this.state.visible && (
           <div className="Dropdown__menu">Випадаюче меню</div>
         )}
@@ -34,4 +29,5 @@ class Dropdown extends Component {
     );
   }
 }
+
 export default Dropdown;
