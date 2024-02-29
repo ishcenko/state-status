@@ -87,7 +87,7 @@ class App extends Component {
     if (this.state.todos !== prevState.todos) {
       console.log('Update todos');
 
-      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+      // localStorage.setItem('todos', JSON.stringify(this.state.todos));
     }
   }
 
