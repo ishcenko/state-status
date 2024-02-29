@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Clock from 'components/Clock/Clock';
 import Counter from './components/Counter';
 import Dropdown from 'components/Dropdown';
 import TodoEditor from 'components/TodoEditor';
@@ -7,6 +8,7 @@ import TodoList from 'components/TodoList';
 import Form from 'components/Form/Form';
 import shortid from 'shortid';
 import Filter from 'components/Filter/Filter';
+import Modal from 'components/Modal/Modal';
 import initialTodos from './todos.json';
 
 const colorPickerOptions = [
@@ -22,6 +24,13 @@ class App extends Component {
     todos: initialTodos,
     inputValue: '',
     filter: '',
+    showModal: false,
+  };
+
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({
+      showModal: !showModal,
+    }));
   };
 
   AddTodo = text => {
@@ -64,14 +73,55 @@ class App extends Component {
     return todos.reduce((total, todo) => (todo.completed ? total + 1 : total));
   };
 
+  componentDidMount() {
+    console.log('App componentDidMount');
+    const todos = localStorage.getItem('todos');
+    const parsedTodos = JSON.parse(todos);
+    console.log(parsedTodos);
+    this.setState({ todos: parsedTodos });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('App componentDidUpdate');
+
+    if (this.state.todos !== prevState.todos) {
+      console.log('Update todos');
+
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+  }
+
   render() {
-    const { todos, filter } = this.state;
+    const { todos, filter, showModal } = this.state;
     const completedTodos = this.calculateCompletedTodos();
     const visdleTodos = this.getVisibleTodos();
 
     return (
       <>
         <h1>Стан компонента</h1>
+        <Clock />
+        <button type="button" onClick={this.toggleModal}>
+          Open Modal
+        </button>
+        {showModal && (
+          <Modal onClose={this.toggleModal}>
+            <button
+              type="button"
+              onClick={this.toggleModal}
+              className="Close__modal"
+            >
+              X
+            </button>
+            <h1>Hello</h1>
+            <p>
+              Під час кліку на елемент галереї повинно відкриватися модальне
+              вікно з темним оверлеєм і відображатися велика версія зображення.
+              Модальне вікно повинно закриватися по натисканню клавіші ESC або
+              по кліку на оверлеї.
+            </p>
+          </Modal>
+        )}
+
         <Form onSubmit={this.formSubmitHandler} />
 
         <Counter initialValue={1} />
@@ -79,7 +129,7 @@ class App extends Component {
         <ColorPicker options={colorPickerOptions} />
         <div>
           <p>Загальна кількість: {todos.length}</p>
-          <p>Кількість виконанних: {completedTodos} </p>
+          <p>Кількість виконанних: {completedTodos.length} </p>
         </div>
         <TodoEditor onSubmit={this.AddTodo} />
         <Filter value={filter} onChange={this.changeFilter} />
