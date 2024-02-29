@@ -77,7 +77,7 @@ class App extends Component {
     console.log('App componentDidMount');
     const todos = localStorage.getItem('todos');
     const parsedTodos = JSON.parse(todos);
-    console.log(parsedTodos);
+    // console.log(parsedTodos);
     this.setState({ todos: parsedTodos });
   }
 
