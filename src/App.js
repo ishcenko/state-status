@@ -131,9 +131,9 @@ class App extends Component {
           <p>Загальна кількість: {todos.length}</p>
           <p>Кількість виконанних: {completedTodos.length} </p>
         </div>
-        <TodoEditor onSubmit={this.AddTodo} />
-        <Filter value={filter} onChange={this.changeFilter} />
-        <TodoList todos={visdleTodos} onDeleteTodo={this.deleteTodo} />
+        {/* <TodoEditor onSubmit={this.AddTodo} /> */}
+        {/* <Filter value={filter} onChange={this.changeFilter} /> */}
+        {/* <TodoList todos={visdleTodos} onDeleteTodo={this.deleteTodo} /> */}
       </>
     );
   }
