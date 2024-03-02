@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
+import './Clock.css';
 export default class Clock extends Component {
   state = {
     time: new Date().toLocaleTimeString(),
-    date: new Date().toLocaleDateString(),
   };
 
   intervalId = null;
@@ -19,7 +18,11 @@ export default class Clock extends Component {
     );
   }
 
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+  }
+
   render() {
-    return <div>{this.state.time}</div>;
+    return <div className="Clock__face">{this.state.time}</div>;
   }
 }

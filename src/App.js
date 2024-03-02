@@ -70,7 +70,10 @@ class App extends Component {
 
   calculateCompletedTodos = () => {
     const { todos } = this.state;
-    return todos.reduce((total, todo) => (todo.completed ? total + 1 : total));
+    return todos.reduce(
+      (total, todo) => (todo.completed ? total + 1 : total),
+      0
+    );
   };
 
   componentDidMount() {
@@ -131,9 +134,9 @@ class App extends Component {
           <p>Загальна кількість: {todos.length}</p>
           <p>Кількість виконанних: {completedTodos.length} </p>
         </div>
-        {/* <TodoEditor onSubmit={this.AddTodo} /> */}
-        {/* <Filter value={filter} onChange={this.changeFilter} /> */}
-        {/* <TodoList todos={visdleTodos} onDeleteTodo={this.deleteTodo} /> */}
+        <TodoEditor onSubmit={this.AddTodo} />
+        <Filter value={filter} onChange={this.changeFilter} />
+        <TodoList todos={visdleTodos} onDeleteTodo={this.deleteTodo} />
       </>
     );
   }

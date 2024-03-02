@@ -1,0 +1,14 @@
+.TodoList__text {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+
+.TodoList__button {
+  border: none;
+  font-size: 20px;
+  width: 120px;
+  padding: 12px;
+  background-color: rgba(255, 0, 0, 0.923);
+}

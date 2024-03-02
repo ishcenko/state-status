@@ -28,16 +28,17 @@
   /* @extend %button; */
 
   width: 100%;
+  font-size: 26px;
   margin-left: auto;
   border-radius: 4px;
   padding: 12px 24px;
-  background-color: indigo;
-  color: white;
+  background-color: rgb(187, 144, 217);
+  color: rgb(5, 0, 0);
   font-weight: 500;
 
   &:hover,
   &:focus {
-    background-color: indigo-accent;
+    background-color: rgb(176, 176, 226);
   }
 
   &:active {

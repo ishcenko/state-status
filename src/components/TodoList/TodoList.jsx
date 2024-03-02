@@ -1,18 +1,12 @@
 import React from 'react';
 import './TodoList.css';
+import Todo from 'components/Todo/Todo';
 
 const TodoList = ({ todos, onDeleteTodo }) => (
   <ul className="TodoList">
     {todos.map(({ id, text }) => (
       <li className="TodoList__item" key={id}>
-        <p className="TodoList__text">{text}</p>
-        <button
-          type="button"
-          onClick={() => onDeleteTodo(id)}
-          className="TodoList__button"
-        >
-          DELETE
-        </button>
+        <Todo text={text} onDelete={() => onDeleteTodo(id)} />
       </li>
     ))}
   </ul>
